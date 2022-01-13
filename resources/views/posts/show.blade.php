@@ -1,3 +1,5 @@
+
+
 <x-layout>
     <section class="px-6 py-8">
         <main class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6">
@@ -6,7 +8,8 @@
                     <img src="/images/illustration-1.png" alt="" class="rounded-xl">
 
                     <p class="mt-4 block text-gray-400 text-xs">
-                        Published <time>{{ $post->created_at->diffForHumans() }}</time>
+                        Published
+                        <time>{{ $post->created_at->diffForHumans() }}</time>
                     </p>
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">
@@ -49,9 +52,14 @@
                         {!! $post->body !!}
                     </div>
                 </div>
+                <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                    @include('posts._add-comment-form')
+
+                    @foreach ($post->comments as $comment)
+                            <x-post-comment :comment="$comment" />
+                        @endforeach
+                </section>
             </article>
         </main>
-
     </section>
-
 </x-layout>
