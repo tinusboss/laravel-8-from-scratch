@@ -5,6 +5,7 @@ use http\Exception;
 use App\Services\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\AppServiceProvider;
 
 class NewsletterController extends Controller
 {
